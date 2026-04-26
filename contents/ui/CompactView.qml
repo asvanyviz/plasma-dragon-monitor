@@ -19,7 +19,7 @@ Item {
 
     // Tooltip on hover
     ToolTip {
-        text: root.dataAvailable ? stateEngine.summaryText : i18n("No system data available")
+        text: root.dataAvailable ? root.summaryText : i18n("No system data available")
         visible: mouseArea.containsMouse
         delay: 500
     }

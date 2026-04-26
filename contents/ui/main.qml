@@ -66,6 +66,7 @@ PlasmoidItem {
     // Global properties
     property int currentState: stateEngine.currentState
     property string alertText: stateEngine.alertText
+    property string summaryText: stateEngine.summaryText
     property bool dataAvailable: stateEngine.dataAvailable
 
     // Debug overlay (enabled with --debug)

@@ -1,0 +1,25 @@
+# Build directories
+build/
+cmake-build-*/
+*.user
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# KDE / Plasma
+*.kdev4
+
+# Compiled translations
+*.mo
+
+# Testing
+*.qmlc
+*.jsc

@@ -13,8 +13,9 @@ Rectangle {
     width: Math.min(messageLabel.implicitWidth + 24, 280)
     height: messageLabel.implicitHeight + 20
 
-    anchors.bottom: parent.bottom
-    anchors.horizontalCenter: parent.horizontalCenter
+    // Anchors should be set by the parent (ExpandedView)
+    // anchors.bottom: parent.top
+    // anchors.horizontalCenter: parent.horizontalCenter
 
     color: Qt.rgba(
         Kirigami.Theme.backgroundColor.r * 0.7 + baseColor.r * 0.3,
