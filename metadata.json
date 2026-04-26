@@ -1,0 +1,23 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "zsolt@example.com",
+                "Name": "Zsolt Papp"
+            }
+        ],
+        "Category": "System Information",
+        "Description": "Animated dragon system monitor widget for Plasma 6",
+        "Icon": "preferences-system-performance",
+        "Id": "org.kde.plasma.dragon-monitor",
+        "License": "GPL-2.0+",
+        "Name": "Dragon System Monitor",
+        "Version": "1.0.0",
+        "Website": "https://github.com/asvanyviz/plasma-dragon-monitor"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-ConfigurationFile": "plasma-dragon-monitor",
+    "X-Plasma-ConfigurationUI": "ui/ConfigGeneral.qml",
+    "X-Plasma-DefaultSize": "256,320"
+}

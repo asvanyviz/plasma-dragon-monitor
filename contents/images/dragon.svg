@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <style>
+    .dragon { fill: currentColor; }
+    .eye { fill: white; }
+    .pupil { fill: black; }
+    .nostril { fill: rgba(0,0,0,0.3); }
+  </style>
+  <!-- Dragon body -->
+  <ellipse cx="64" cy="70" rx="45" ry="40" class="dragon"/>
+  <!-- Head -->
+  <ellipse cx="64" cy="45" rx="35" ry="30" class="dragon"/>
+  <!-- Ears/horns -->
+  <path d="M35 25 L25 5 L45 20 Z" class="dragon"/>
+  <path d="M93 25 L103 5 L83 20 Z" class="dragon"/>
+  <!-- Eyes -->
+  <ellipse cx="50" cy="40" rx="10" ry="12" class="eye"/>
+  <ellipse cx="78" cy="40" rx="10" ry="12" class="eye"/>
+  <circle cx="52" cy="40" r="5" class="pupil"/>
+  <circle cx="76" cy="40" r="5" class="pupil"/>
+  <!-- Nostrils -->
+  <ellipse cx="58" cy="55" rx="3" ry="2" class="nostril"/>
+  <ellipse cx="70" cy="55" rx="3" ry="2" class="nostril"/>
+  <!-- Mouth -->
+  <path d="M50 65 Q64 75 78 65" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="3" stroke-linecap="round"/>
+  <!-- Wings -->
+  <path d="M20 60 Q5 40 15 20 Q30 35 35 55 Z" class="dragon"/>
+  <path d="M108 60 Q123 40 113 20 Q98 35 93 55 Z" class="dragon"/>
+  <!-- Tail -->
+  <path d="M30 95 Q15 110 20 120 Q35 115 40 100 Z" class="dragon"/>
+</svg>
