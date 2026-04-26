@@ -8,7 +8,17 @@ KCM.SimpleKCM {
     title: i18n("Dragon System Monitor")
 
     Kirigami.FormLayout {
-        // Monitored metrics
+        
+        ComboBox {
+            Kirigami.FormData.label: i18n("Character:")
+            model: ["Dragon", "Cat", "Dog"]
+            currentIndex: model.indexOf(plasmoid.configuration.characterType || "Dragon")
+            onActivated: {
+                plasmoid.configuration.characterType = model[index];
+            }
+            // Could be dynamically built by scanning ../images/ for SVGs
+        }
+
         Kirigami.Heading {
             text: i18n("Monitored Metrics")
             level: 2
@@ -40,7 +50,6 @@ KCM.SimpleKCM {
             onCheckedChanged: plasmoid.configuration.monitorNet = checked
         }
 
-        // Hysteresis thresholds
         Kirigami.Heading {
             text: i18n("Thresholds (%)")
             level: 2
@@ -85,7 +94,6 @@ KCM.SimpleKCM {
             onValueModified: plasmoid.configuration.thresholdExitCritical = value
         }
 
-        // Behavior
         Kirigami.Heading {
             text: i18n("Behavior")
             level: 2
@@ -97,7 +105,6 @@ KCM.SimpleKCM {
             from: 500; to: 10000; stepSize: 100
             onValueModified: plasmoid.configuration.updateInterval = value
         }
-
         CheckBox {
             Kirigami.FormData.label: i18n("Show speech bubble:")
             checked: plasmoid.configuration.showBubble

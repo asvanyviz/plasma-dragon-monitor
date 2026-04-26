@@ -2,6 +2,11 @@
 <kcfg xmlns="http://www.kde.org/standards/kcfg/1.0">
     <kcfgfile name=""/>
     <group name="General">
+        <!-- Character type -->
+        <entry name="characterType" type="String">
+            <default>dragon</default>
+        </entry>
+
         <!-- Monitored sensors -->
         <entry name="monitorCpu" type="Bool">
             <default>true</default>

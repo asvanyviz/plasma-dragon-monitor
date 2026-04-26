@@ -21,10 +21,10 @@ Item {
         id: content
         anchors.fill: parent
 
-        // Dragon SVG or placeholder
+        // Dragon SVG or placeholder — dynamic source based on characterType
         Image {
             id: dragonImage
-            source: "../images/dragon.svg"
+            source: "../images/" + (plasmoid.configuration.characterType || "dragon").toLowerCase() + ".svg"
             sourceSize: Qt.size(parent.width, parent.height)
             anchors.fill: parent
             smooth: true
