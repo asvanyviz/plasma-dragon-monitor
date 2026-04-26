@@ -1,4 +1,5 @@
 import QtQuick 2.15
+import org.kde.kirigami 2.20 as Kirigami
 
 QtObject {
     id: engine
@@ -52,16 +53,26 @@ QtObject {
         }
 
         // Hysteresis — enter/exit thresholds
+        // First: determine target state based on maxLoad
+        var targetState = 0;
+        if (maxLoad >= thresholds.enterCritical) targetState = 3;
+        else if (maxLoad >= thresholds.enterAngry) targetState = 2;
+        else if (maxLoad >= thresholds.enterAlert) targetState = 1;
+
+        // Apply hysteresis: only drop state if exit threshold crossed
         var newState = currentState;
-
-        if (currentState >= 3 && maxLoad < thresholds.exitCritical) newState = 2;
-        else if (currentState >= 2 && maxLoad < thresholds.exitAngry) newState = 1;
-        else if (currentState >= 1 && maxLoad < thresholds.exitAlert) newState = 0;
-
-        if (maxLoad >= thresholds.enterCritical) newState = 3;
-        else if (maxLoad >= thresholds.enterAngry) newState = 2;
-        else if (maxLoad >= thresholds.enterAlert) newState = 1;
-        else newState = 0;
+        if (targetState > currentState) {
+            // Always allow moving up immediately
+            newState = targetState;
+        } else if (targetState < currentState) {
+            // Only move down if we've crossed the exit threshold
+            var exitThreshold = (currentState === 3) ? thresholds.exitCritical :
+                                (currentState === 2) ? thresholds.exitAngry :
+                                (currentState === 1) ? thresholds.exitAlert : 0;
+            if (maxLoad < exitThreshold) {
+                newState = targetState;
+            }
+        }
 
         currentState = newState;
 

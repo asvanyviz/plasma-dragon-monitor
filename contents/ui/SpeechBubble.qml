@@ -4,6 +4,10 @@ import org.kde.kirigami 2.20 as Kirigami
 
 Rectangle {
     id: bubble
+    property int dragonState: 0
+    property string alertText: ""
+    property color baseColor: "#4CAF50"
+
     visible: dragonState >= 1 && plasmoid.configuration.showBubble && alertText !== ""
 
     width: Math.min(messageLabel.implicitWidth + 24, 280)
@@ -12,7 +16,12 @@ Rectangle {
     anchors.bottom: parent.bottom
     anchors.horizontalCenter: parent.horizontalCenter
 
-    color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, baseColor, 0.3)
+    color: Qt.rgba(
+        Kirigami.Theme.backgroundColor.r * 0.7 + baseColor.r * 0.3,
+        Kirigami.Theme.backgroundColor.g * 0.7 + baseColor.g * 0.3,
+        Kirigami.Theme.backgroundColor.b * 0.7 + baseColor.b * 0.3,
+        0.85
+    )
     border.color: baseColor
     border.width: 2
     radius: 12
